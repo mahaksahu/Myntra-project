@@ -1,0 +1,320 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: rgba(10, 0, 0, 0.87);
+  background-color: white;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* @media (prefers-color-scheme: light) {
+  :root {
+    color: #213547;
+    background-color: #ffffff;
+  }
+  a:hover {
+    color: #747bff;
+  }
+  button {
+    background-color: #f9f9f9;
+  }
+} */ 
+
+/* nav a:hover {
+  border-bottom: 4px solid #f54e77;
+} */
+.header {
+  position: relative;
+}
+
+.header::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px; /* Adjust thickness of the border as needed */
+  background-color: transparent; /* Initial color */
+  transition: background-color 0.3s ease; /* Smooth transition for color change */
+}
+
+.header:hover::after {
+  background-color: #e91e63; /* Color of the border on hover */
+  color:#e91e63;
+}
+
+.header a:hover,
+.header h1:hover {
+  color: #e91e63; /* Change color to your desired hover color */
+  border-color: #e91e63; /* Color for border on hover */
+  cursor: pointer; /* Change cursor to pointer on hover */
+}
+
+*::selection{
+  background-color: #ff3377;
+  color: rgb(255, 255, 255);
+}
+body::-webkit-scrollbar{
+  /* display:none;  ----isse scrollbar hatt jata hai  */
+  display: block;
+  width: 18px;
+  background-color: #ffccdd;
+  ;
+}
+body::-webkit-scrollbar-thumb{
+  /* display:none;  ----isse scrollbar hatt jata hai  */
+  display: block;
+  width: 6px;
+  background-color: #fff;
+  border-radius: 20px;
+}
+
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background-color: #fff;
+}
+nav a sup {
+  color: #ff3f6c;
+  font-size: 10px;
+} 
+.scroll-container {
+  position: fixed;
+  
+}
+
+.grid-container{
+  position: relative;
+  z-index: 10;
+}
+
+.image-section {
+  height: 100%; /* Full viewport height */
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.scroll-image {
+  width: 100%;
+  height: 100%;
+}
+
+.effect{
+  transition: 1s;
+}
+
+/* .content-section {
+  opacity: 0; /* Start hidden */
+  /* transform: translateY(100px); Start slightly below */
+  /* transition: opacity 0.5s ease, transform 0.5s ease; */
+/* } */ 
+
+/* src/components/Card.css */
+.my-masonry-grid {
+  display: flex;
+  width: 100%;
+  gap: 20px; /* Adjust the gap between columns */
+}
+
+.my-masonry-grid_column {
+  background-clip: padding-box;
+}
+
+.card {
+  background: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+  margin-bottom: 16px;
+}
+
+.card-image {
+  width: 100%;
+  height: auto;
+}
+
+
+.card-title {
+  padding: 8px;
+  font-size: 16px;
+  text-align: center;
+}
+/* src/components/Grid.css */
+.grid {
+  display: flex;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 16px;
+  padding: 16px;
+}
+/* src/pages/Pinterest.css */
+.pinterest-page {
+  padding-top: 70px; /* Adjust according to your header height */
+}
+.footer_container {
+  padding: 30px 0px 40px 0px;
+  background: #fafbfc62;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.footer_column {
+  display: flex;
+  flex-direction: column;
+}
+
+.footer_column h3 {
+  color: #282c3f;
+  font-size: 14px;
+  margin-bottom: 25px;
+}
+
+.footer_column a {
+  color: #696b79;
+  font-size: 15px;
+  text-decoration: none;
+  padding-bottom: 5px;
+}
+
+.copyright {
+  color: #000000;
+  text-align: end;
+  padding: 15px;
+}
+
+/* Detail.css */
+/* .detail-container {
+  display: flex;
+  /* flex-direction: row;
+  align-items: center; */
+  /* height: 100vh;
+  width: 100%;
+  */
+.main-container{
+  display: flex;
+  flex-direction: column;
+}
+/* .pin-image{
+  height: 80%;
+  width: 80%;
+} */
+.left-section {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.selected-image {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+.right-section {
+  flex: 1;
+  width: 100%;
+  max-width: 600px;
+  margin-bottom: 20px;
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.comments-section {
+  margin-bottom: 20px;
+}
+
+.wishlist-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #fff;
+  color: rgb(0, 0, 0);
+  border: 1px solid #b1b1b1;
+  border-radius: 4px;
+  cursor: pointer;
+  text-transform: uppercase;
+
+}
+.add-to-bag {
+  padding: 10px;
+  width: auto;
+  height: 30px;
+  font-size: 10px;
+  background-color: #ff4081;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  text-transform: uppercase;
+}
+.view-product{
+  height:30px;
+  width: auto;
+  font-size: 10px;
+  border: 1px solid #b1b1b1;
+  border-radius: 4px;
+  padding: 10px;
+  cursor: pointer;
+  text-transform: uppercase;
+  margin-bottom: 3px;
+}
+
+.more-to-explore {
+  width: 100%;
+  margin-top: 20px;
+}
+
+.more-to-explore h2 {
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.explore-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 20px;
+}
+
+.explore-card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.explore-image {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+.recommended-card{
+  display: flex;
+  flex-direction: column;
+}
+
+.mrp{
+  text-decoration: 1px line-through;
+}
+.product-recommendation{
+  display: flex;
+  flex-flow: row;
+}
+
