@@ -1,22 +1,32 @@
-import React, { useState } from 'react'
+
+
+import React, { useState, useEffect } from 'react';
 
 function Offertime() {
+    const [time, setTime] = useState("");
 
-    const[time,setTime] = useState("")
-    const date = new Date();
-    const hh = date.getHours();
-    const mm = date.getMinutes();
-    const ss = date.getSeconds();
+    useEffect(() => {
+        const timer = setInterval(() => {
+            const now = new Date();
+            const midnight = new Date(now);
+            midnight.setHours(24, 0, 0, 0); // set to midnight
 
-    setTimeout(() => {
-        setTime(hh+"H"+":"+mm+"M"+":"+ss+"S")
-    }, 1000);
-  return (
+            const diff = midnight - now;
+            const hours = Math.floor(diff / (1000 * 60 * 60));
+            const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((diff % (1000 * 60)) / 1000);
 
-    <div className='w-full h-12 bg-blue-50 flex flex-col items-center justify-center'>
-        <h1 className='text-gray-500'>Sale Ends In <span className='text-rose-400'>{time}</span></h1>
-    </div>
-  )
+            setTime(hours + "H:" + minutes + "M:" + seconds + "S");
+        }, 1000);
+
+        return () => clearInterval(timer); // cleanup the interval on component unmount
+    }, []);
+
+    return (
+        <div className='w-full h-12 bg-blue-50 flex flex-col items-center justify-center'>
+            <h1 className='text-gray-500'>Sale Ends In <span className='text-rose-400'>{time}</span></h1>
+        </div>
+    );
 }
 
-export default Offertime
+export default Offertime;

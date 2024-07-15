@@ -31,7 +31,7 @@ const Grid = () => {
       display: 'flex',
       justifyContent: 'center',
       alignContent: 'start',
-      gridAutoFlow: 'inherit',
+      gridAutoFlow: 'dense',
     }}
     >
       {cards.map((card, index) => (
